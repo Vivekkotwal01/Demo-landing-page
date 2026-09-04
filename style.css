@@ -1,0 +1,375 @@
+/* ================================================================
+   FitZone Gym — Stylesheet
+   Palette: charcoal #0E0E10, deep panel #17171A, volt #D4FF3D,
+            ember #FF4D2E, off-white #F4F4F2, muted grey #9A9A9E
+   Type: 'Anton' for display headlines, 'Inter' for body/UI
+   ================================================================ */
+
+:root {
+  --bg: #0E0E10;
+  --panel: #17171A;
+  --panel-alt: #1E1E22;
+  --volt: #D4FF3D;
+  --ember: #FF4D2E;
+  --white: #F4F4F2;
+  --grey: #9A9A9E;
+  --border: #2A2A2E;
+
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a { text-decoration: none; color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--volt);
+  outline-offset: 3px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.btn-primary {
+  background: var(--volt);
+  color: #101012;
+}
+.btn-primary:hover { transform: translateY(-2px); background: #c3ee2c; }
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--border);
+}
+.btn-ghost:hover { border-color: var(--white); transform: translateY(-2px); }
+.btn-large { padding: 17px 36px; font-size: 16px; }
+.btn-small { padding: 10px 18px; font-size: 14px; }
+.btn-full { width: 100%; text-align: center; border: none; }
+
+/* Header */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  background: rgba(14,14,16,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+.logo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  color: var(--volt);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding-top: 68px;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(30%) brightness(0.55);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14,14,16,0.4) 0%, rgba(14,14,16,0.85) 85%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 8vw, 76px);
+  line-height: 1.02;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+.hero-subheadline {
+  font-size: 18px;
+  color: var(--grey);
+  max-width: 520px;
+  margin-bottom: 36px;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Section heading */
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.5vw, 40px);
+  text-align: center;
+  margin-bottom: 48px;
+  letter-spacing: 0.3px;
+}
+
+section { padding: 96px 0; }
+
+/* Benefits */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.benefit-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 36px 28px;
+  text-align: left;
+}
+.benefit-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+.benefit-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.benefit-card p {
+  color: var(--grey);
+  font-size: 15px;
+}
+
+/* Transformations */
+.transformations { background: var(--panel); }
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto 56px;
+}
+.ba-card {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+}
+.ba-card img { width: 100%; height: 100%; object-fit: cover; }
+.ba-label {
+  position: absolute;
+  bottom: 12px; left: 12px;
+  background: rgba(14,14,16,0.85);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--volt);
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+  text-align: center;
+}
+.stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 34px;
+  color: var(--volt);
+}
+.stat-label {
+  display: block;
+  color: var(--grey);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testimonial-card {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px;
+}
+.testimonial-card .quote {
+  font-size: 15px;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.testimonial-card .author {
+  font-size: 14px;
+  color: var(--grey);
+  font-weight: 600;
+}
+
+/* Offer */
+.offer {
+  background: linear-gradient(135deg, var(--ember) 0%, #d4372a 100%);
+  color: #17100c;
+}
+.offer-inner { text-align: center; }
+.offer .section-heading { color: #17100c; }
+.offer-main {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 7vw, 64px);
+  margin-bottom: 12px;
+}
+.offer-support {
+  font-size: 16px;
+  margin-bottom: 32px;
+  color: #2a1a12;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.offer .btn-primary {
+  background: #101012;
+  color: var(--volt);
+}
+.offer .btn-primary:hover { background: #000; }
+
+/* Lead form */
+.lead-form-section { background: var(--bg); }
+.lead-form {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 36px;
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--grey);
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 12px 14px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-family: var(--font-body);
+}
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--volt);
+  outline: none;
+}
+.form-group input.invalid,
+.form-group select.invalid {
+  border-color: var(--ember);
+}
+.error-message {
+  display: block;
+  color: var(--ember);
+  font-size: 13px;
+  margin-top: 6px;
+  min-height: 16px;
+}
+
+/* Footer */
+.site-footer {
+  padding: 32px 0;
+  text-align: center;
+  color: var(--grey);
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+}
+
+/* Thank-you page */
+.thankyou-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+.thankyou-box { max-width: 520px; }
+.thankyou-box h1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 48px);
+  margin-bottom: 20px;
+  color: var(--volt);
+}
+.thankyou-box p {
+  color: var(--grey);
+  font-size: 17px;
+  margin-bottom: 32px;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .benefits-grid,
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+  .stats { gap: 32px; }
+}
+
+@media (max-width: 600px) {
+  section { padding: 64px 0; }
+  .hero { min-height: 100vh; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { text-align: center; }
+  .before-after { max-width: 320px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
